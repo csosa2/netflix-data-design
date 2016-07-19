@@ -9,52 +9,6 @@
 			<h1>Netflix Data Design</h1>
 		</header>
 		<main>
-			<!--<h2>Entities and Attributes</h2>
-			<h4>Account:</h4>
-			<table>
-				<tr><th>Account</th></tr>
-				<tr><td>My Profile</td></tr>
-				<tr><td>Membership and Billing</td></tr>
-				<tr><td>Plan Details</td></tr>
-				<tr><td>Settings</td></tr>
-				<tr><td>Gifts and Offers</td></tr>
-			</table>
-			<h4>Media Content:</h4>
-			<table>
-				<tr><th>Overview</th></tr>
-				<tr><td>Title</td></tr>
-				<tr><td>Star Rating</td></tr>
-				<tr><td>Release Year</td></tr>
-				<tr><td>Maturity Rating</td></tr>
-				<tr><td>Length</td></tr>
-				<tr><td>Summary</td></tr>
-				<tr><td>Starring</td></tr>
-				<tr><td>Genre</td></tr>
-				<tr><td>"This movie is"</td></tr>
-				<tr><td>Additional Notes</td></tr>
-				<tr><td>Add to list option</td></tr>
-				<tr><th>More Like This</th></tr>
-				<tr><td><em>Media Options</em></td></tr>
-				<tr><th>Details</th></tr>
-				<tr><td>Director</td></tr>
-				<tr><td>Cast</td></tr>
-				<tr><td>Genres</td></tr>
-				<tr><td>"This movie is"</td></tr>
-				<tr><td>Member Reviews</td></tr>
-				<tr><td>Maturity Rating</td></tr>
-				<tr><td>Audio/Subtitle Options</td></tr>
-			</table>
-			<h4>Reviews:</h4>
-			<table>
-				<tr><th>Review</th></tr>
-				<tr><td>Star Rating</td></tr>
-				<tr><td>I found this review:</td></tr>
-				<tr><td>Helpful</td></tr>
-				<tr><td>Not Helpful</td></tr>
-				<tr><td>Inappropriate</td></tr>
-				<tr><td>Write a Review</td></tr>
-				<tr><td>Submit Review</td></tr>
-			</table>-->
 			<h2>User Story</h2>
 			<p>
 				As a user, I want to watch films and television shows.
@@ -62,14 +16,14 @@
 			<h2>Persona</h2>
 			<h4>Name: Kendall McCoy</h4>
 			<h4>Age: 27</h4>
-			<h4>Profession:Law student looking for a stress releasing outlet to enjoy on her weekends when she is not 			busy studying for classes.</h4>
+			<h4>Profession:Law student looking for a stress releasing outlet to enjoy on her weekends when she is not busy studying for classes.</h4>
 			<p>
 				As a lover of TV and movies and not so much of a fan of high satellite service costs, Kendall has gotten
 				rid oher her satellite telivision and has signed up for Netflix as a way to still enjoy the movies and shows
 				she loves. She would like to comment,review and do research on media content she has previously watched and will watch in the future. Kendall loves watching horror movies and is very knowledgable in the genre. She would like to find more great horror movies as well as contribute to the review section in Netflix to recommend and critique horror movies for other Netflix users.
 			</P>
 				<h4>Technology:</h4>
-				<p>Kendall uses her Netflix primarily on her streaming device (Amazon Firestick) and her Macbook Air laptop. She does not use other devices to access Netflix although it is available through mobile devices if ever 				needed.
+				<p>Kendall uses her Netflix primarily on her streaming device (Amazon Firestick) and her Macbook Air laptop. She does not use other devices to access Netflix although it is available through mobile devices if ever needed.
 				</p>
 			<h2>Interaction Flow</h2>
 			<h3>Use Case 1</h3>
@@ -82,7 +36,7 @@
 				<li>Kendall will scroll down the list of movie options and</li>
 				<li>Kendall will hover over the film that looks intersesting to her.</li>
 				<li>Kendall will read the film description</li>
-				<li>Kendall will click on "Details"</li>
+				<li>Kendall will click on "Detils"</li>
 				<li>Kendall will look at the member reviews and click on "See all reviews" and a window will pop up with
 					all reviews included.</li>
 				<li>Kendall will read through all the reviews and contritube to the reviews by clicking the "helpful",
@@ -129,18 +83,63 @@
 			<h3>Relationships</h3>
 			<h4>One to One:</h4>
 			<p>Each account can only belong to one primary user (billing person/entity).</p>
-			<p>Each profile can review one movie, show or episode once.</p>
-			<p>Each profile can rate each review once.</p>
+			<p>Each media content can have one review per profile.</p>
 			<p>Each profile can rate a review once.</p>
 
 			<h4>One to Many:</h4>
 			<p>Each account can have multiple profiles.</p>
-			<p>Each profile can review multiple movies and shows.</p>
+			<p>Each profile can review multiple media content.</p>
 			<p>Each media content can be reviewed by an unlimited number of users.</p>
 
 			<h4>Many to Many:</h4>
 			<p>Many media contents can have many reviews.</p>
 			<p><strong>Weak Entity:</strong> Many profiles can rate many different reviews.</p>
+			<!--<h2>Entities and Attributes</h2>
+			<h4>Account:</h4>
+			<table>
+				<tr><th>Account</th></tr>
+				<tr><td>My Profile</td></tr>
+				<tr><td>Membership and Billing</td></tr>
+				<tr><td>Plan Details</td></tr>
+				<tr><td>Settings</td></tr>
+				<tr><td>Gifts and Offers</td></tr>
+			</table>
+			<h4>Media Content:</h4>
+			<table>
+				<tr><th>Overview</th></tr>
+				<tr><td>Title</td></tr>
+				<tr><td>Star Rating</td></tr>
+				<tr><td>Release Year</td></tr>
+				<tr><td>Maturity Rating</td></tr>
+				<tr><td>Length</td></tr>
+				<tr><td>Summary</td></tr>
+				<tr><td>Starring</td></tr>
+				<tr><td>Genre</td></tr>
+				<tr><td>"This movie is"</td></tr>
+				<tr><td>Additional Notes</td></tr>
+				<tr><td>Add to list option</td></tr>
+				<tr><th>More Like This</th></tr>
+				<tr><td><em>Media Options</em></td></tr>
+				<tr><th>Details</th></tr>
+				<tr><td>Director</td></tr>
+				<tr><td>Cast</td></tr>
+				<tr><td>Genres</td></tr>
+				<tr><td>"This movie is"</td></tr>
+				<tr><td>Member Reviews</td></tr>
+				<tr><td>Maturity Rating</td></tr>
+				<tr><td>Audio/Subtitle Options</td></tr>
+			</table>
+			<h4>Reviews:</h4>
+			<table>
+				<tr><th>Review</th></tr>
+				<tr><td>Star Rating</td></tr>
+				<tr><td>I found this review:</td></tr>
+				<tr><td>Helpful</td></tr>
+				<tr><td>Not Helpful</td></tr>
+				<tr><td>Inappropriate</td></tr>
+				<tr><td>Write a Review</td></tr>
+				<tr><td>Submit Review</td></tr>
+			</table>-->
 		</main>
 	</body>
 	<footer>
