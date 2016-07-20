@@ -92,54 +92,9 @@
 			<p>Each media content can be reviewed by an unlimited number of users.</p>
 
 			<h4>Many to Many:</h4>
+			<p>test!</p>
 			<p>Many media contents can have many reviews.</p>
 			<p><strong>Weak Entity:</strong> Many profiles can rate many different reviews.</p>
-			<!--<h2>Entities and Attributes</h2>
-			<h4>Account:</h4>
-			<table>
-				<tr><th>Account</th></tr>
-				<tr><td>My Profile</td></tr>
-				<tr><td>Membership and Billing</td></tr>
-				<tr><td>Plan Details</td></tr>
-				<tr><td>Settings</td></tr>
-				<tr><td>Gifts and Offers</td></tr>
-			</table>
-			<h4>Media Content:</h4>
-			<table>
-				<tr><th>Overview</th></tr>
-				<tr><td>Title</td></tr>
-				<tr><td>Star Rating</td></tr>
-				<tr><td>Release Year</td></tr>
-				<tr><td>Maturity Rating</td></tr>
-				<tr><td>Length</td></tr>
-				<tr><td>Summary</td></tr>
-				<tr><td>Starring</td></tr>
-				<tr><td>Genre</td></tr>
-				<tr><td>"This movie is"</td></tr>
-				<tr><td>Additional Notes</td></tr>
-				<tr><td>Add to list option</td></tr>
-				<tr><th>More Like This</th></tr>
-				<tr><td><em>Media Options</em></td></tr>
-				<tr><th>Details</th></tr>
-				<tr><td>Director</td></tr>
-				<tr><td>Cast</td></tr>
-				<tr><td>Genres</td></tr>
-				<tr><td>"This movie is"</td></tr>
-				<tr><td>Member Reviews</td></tr>
-				<tr><td>Maturity Rating</td></tr>
-				<tr><td>Audio/Subtitle Options</td></tr>
-			</table>
-			<h4>Reviews:</h4>
-			<table>
-				<tr><th>Review</th></tr>
-				<tr><td>Star Rating</td></tr>
-				<tr><td>I found this review:</td></tr>
-				<tr><td>Helpful</td></tr>
-				<tr><td>Not Helpful</td></tr>
-				<tr><td>Inappropriate</td></tr>
-				<tr><td>Write a Review</td></tr>
-				<tr><td>Submit Review</td></tr>
-			</table>-->
 		</main>
 	</body>
 	<footer>
