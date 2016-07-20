@@ -11,7 +11,7 @@
 		<main>
 			<h2>User Story</h2>
 			<p>
-				As a user, I want to leave a review on a movie I watched.
+				As a user, I want to leave a review on a movie called "The Hunt" that I watched.
 			</p>
 			<h2>Persona</h2>
 			<h4>Name: Kendall McCoy</h4>
@@ -61,27 +61,33 @@
 			</ul>
 			<h2>review (weak)</h2>
 			<ul>
+				<li>reviewId (primary key)</li>
+				<li>reviewUserId (foreign key)</li>
 				<li>reviewContent</li>
 			</ul>
 			<h2>media</h2>
 			<ul>
+				<li>mediaId (primary key)</li>
+				<li>mediaUserId (foreign key)</li>
 				<li>mediaTitle</li>
 			</ul>
 			<h2>helpful (weak)</h2>
 			<ul>
+				<li>helpfulId (primary key)</li>
+				<li>helpfulUserId (foreign key)</li>
 				<li>helpfulH</li>
-				<li>helpfulU</li>
+				<li>helpfulN</li>
 				<li>helpfulI</li>
 			</ul>
 			<h2>star (weak)</h2>
 			<ul>
+				<li>starId (primary key)</li>
 				<li>starOne</li>
 				<li>starTwo</li>
 				<li>starThree</li>
 				<li>starFour</li>
 				<li>starFive</li>
 			</ul>
-
 			<h3>Relationships</h3>
 			<p>Each user can write many reviews. <em>1-to-m</em></p>
 			<p>Each user can watch many media contents. <em>1-to-m</em></p>
@@ -95,14 +101,8 @@
 			<p>Each media content can be voted helpful by many users <em>1-to-m</em></p>
 			<p>Many users can vote helpful on many reivews. <em>(weak entity) m-to-n</em></p>
 			<p>Many media contents can have many reviews <em>m-to-n</em></p>
-
-
-
-			<h4>One to Many:</h4>
-			<p>Each account can have multiple profiles.</p>
-			<p>Each profile can review multiple media content.</p>
-			<p>Each media content can be reviewed by an unlimited number of users.</p>
-
+			<!--Are primary keys the entity or named after the entity?-->
+			<!--Do foreign keys start with the many entity first and then conitnue with the 1 entity second?-->
 		</main>
 		<footer>
 
