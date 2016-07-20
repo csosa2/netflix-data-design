@@ -83,23 +83,29 @@
 			</ul>
 
 			<h3>Relationships</h3>
-			<h4>One to One:</h4>
-			<p>Each account can only belong to one primary user (billing person/entity).</p>
-			<p>Each media content can have one review per profile.</p>
-			<p>Each profile can rate a review once.</p>
+			<p>Each user can write many reviews. <em>1-to-m</em></p>
+			<p>Each user can watch many media contents. <em>1-to-m</em></p>
+			<p>Each user can leave one review per media conent. <em>1-to-1</em></p>
+			<p>Each user can star rate a review once per media content. <em>1-to-1</em></p>
+			<p>Each user can vote one review helpful per media content. <em>1-to-1</em></p>
+			<p>Each review can be voted helfpful by many users. <em>1-to-m</em></p>
+			<p>Each review can only have one star rating per individual review. <em>1-to-1</em></p>
+			<p>Each media content can be reviewed by many users. <em>1-to-m</em></p>
+			<p>Each media content can be star rated by many users <em>1-to-m</em></p>
+			<p>Each media content can be voted helpful by many users <em>1-to-m</em></p>
+			<p>Many users can vote helpful on many reivews. <em>(weak entity) m-to-n</em></p>
+			<p>Many media contents can have many reviews <em>m-to-n</em></p>
+
+
 
 			<h4>One to Many:</h4>
 			<p>Each account can have multiple profiles.</p>
 			<p>Each profile can review multiple media content.</p>
 			<p>Each media content can be reviewed by an unlimited number of users.</p>
 
-			<h4>Many to Many:</h4>
-			<p>test!</p>
-			<p>Many media contents can have many reviews.</p>
-			<p><strong>Weak Entity:</strong> Many profiles can rate many different reviews.</p>
 		</main>
-	</body>
-	<footer>
+		<footer>
 
-	</footer>
+		</footer>
+	</body>
 </html>
