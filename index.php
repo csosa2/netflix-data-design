@@ -54,40 +54,46 @@
 			<h2>user</h2>
 			<ul>
 				<li>userId (primary key)</li>
-				<li>userName</li>
 				<li>userEmail</li>
+				<li>userName</li>
 				<li>userPassHash</li>
 				<li>userPassSalt</li>
 			</ul>
 			<h2>review (weak)</h2>
 			<ul>
 				<li>reviewId (primary key)</li>
+				<li>reviewMediaId (foreign key)</li>
 				<li>reviewUserId (foreign key)</li>
 				<li>reviewContent</li>
 			</ul>
 			<h2>media</h2>
 			<ul>
 				<li>mediaId (primary key)</li>
-				<li>mediaUserId (foreign key)</li>
+				<li>mediaUserId (foreign key)</li> <!--Do only weak entities contain foreign keys?-->
 				<li>mediaTitle</li>
 			</ul>
 			<h2>helpful (weak)</h2>
 			<ul>
 				<li>helpfulId (primary key)</li>
 				<li>helpfulUserId (foreign key)</li>
+				<li>helpfulMediaId (foreign key)</li>
 				<li>helpfulH</li>
-				<li>helpfulN</li>
 				<li>helpfulI</li>
+				<li>helpfulN</li>
 			</ul>
 			<h2>star (weak)</h2>
 			<ul>
 				<li>starId (primary key)</li>
-				<li>starOne</li>
-				<li>starTwo</li>
-				<li>starThree</li>
-				<li>starFour</li>
-				<li>starFive</li>
+				<li>starUserId (foreign key)</li>
+				<li>starMediaId (foreign key)</li>
+				<li>star1</li>
+				<li>star2</li>
+				<li>star3</li>
+				<li>star3</li>
+				<li>star4</li>
 			</ul>
+			<!--Are primary keys the entity or named after the entity?-->
+			<!--Do foreign keys start with the many entity first and then conitnue with the 1 entity second?-->
 			<h3>Relationships</h3>
 			<p>Each user can write many reviews. <em>1-to-m</em></p>
 			<p>Each user can watch many media contents. <em>1-to-m</em></p>
@@ -101,8 +107,6 @@
 			<p>Each media content can be voted helpful by many users <em>1-to-m</em></p>
 			<p>Many users can vote helpful on many reivews. <em>(weak entity) m-to-n</em></p>
 			<p>Many media contents can have many reviews <em>m-to-n</em></p>
-			<!--Are primary keys the entity or named after the entity?-->
-			<!--Do foreign keys start with the many entity first and then conitnue with the 1 entity second?-->
 		</main>
 		<footer>
 
