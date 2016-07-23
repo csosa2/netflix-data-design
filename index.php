@@ -9,6 +9,7 @@
 			<h1>Netflix Data Design</h1>
 		</header>
 		<main>
+			<h2>Phase 1</h2>
 			<h2>User Story</h2>
 			<p>
 				As a user, I want to leave a review on a movie called "The Hunt" that I watched.
@@ -85,6 +86,11 @@
 			<p>One user can rate many reviews (helpful, not helpful, inappropriate <em>1-to-n</em></p>
 			<p>Many media have many reviews <em>m-to-n</em></p>
 			<p>Many reviews are voted (helpful, not helpful, inappropriate <em>m-to-n</em></p>
+			<h2>phase 2</h2>
+			<h3>Entity Relationship Diagram</h3>
+			<img src="NetflixDataDesignERD.svg" alt="Netflix Entity Relationship diagram">
+			<h3>Data Description Language (DDL) Scripts</h3>
+			<!--SQL scripts formatted with HTML-->
 		</main>
 	</body>
 </html>
