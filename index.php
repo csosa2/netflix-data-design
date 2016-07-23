@@ -61,7 +61,7 @@
 			</ul>
 			<h2>review (weak)</h2>
 			<ul>
-				<li>reviewId (primary key)</li> <!--Is this primary key needed-->
+				<li>reviewId (primary key)</li>
 				<li>reviewMediaId (foreign key)</li>
 				<li>reviewUserId (foreign key)</li>
 				<li>reviewContent</li>
@@ -79,28 +79,12 @@
 				<li>helpfulVote</li>
 				<li>helpfulInappropriate</li>
 			</ul>
-			<h2>star (weak)</h2>
-			<ul>
-				<li>starUserId (foreign key)</li>
-				<li>starMediaId (foreign key)</li>
-				<li>starRating</li>
-			</ul>
 			<h3>Relationships</h3>
-			<p>Each user can write many reviews. <em>1-to-m</em></p>
-			<p>Each user can watch many media contents. <em>1-to-m</em></p>
-			<p>Each user can leave one review per media conent. <em>1-to-1</em></p>
-			<p>Each user can star rate a review once per media content. <em>1-to-1</em></p>
-			<p>Each user can vote one review helpful per media content. <em>1-to-1</em></p>
-			<p>Each review can be voted helfpful by many users. <em>1-to-m</em></p>
-			<p>Each review can only have one star rating per individual review. <em>1-to-1</em></p>
-			<p>Each media content can be reviewed by many users. <em>1-to-m</em></p>
-			<p>Each media content can be star rated by many users <em>1-to-m</em></p>
-			<p>Each media content can be voted helpful by many users <em>1-to-m</em></p>
-			<p>Many users can vote helpful on many reivews. <em>(weak entity) m-to-n</em></p>
-			<p>Many media contents can have many reviews <em>(weak entity) m-to-n</em></p>
+			<p>One user can watch many media <em>1-to-n</em></p>
+			<p>One user can write many reviews <em>1-to-n</em></p>
+			<p>One user can rate many reviews (helpful, not helpful, inappropriate <em>1-to-n</em></p>
+			<p>Many media have many reviews <em>m-to-n</em></p>
+			<p>Many reviews are voted (helpful, not helpful, inappropriate <em>m-to-n</em></p>
 		</main>
-		<footer>
-
-		</footer>
 	</body>
 </html>
