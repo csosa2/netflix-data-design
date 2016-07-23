@@ -60,18 +60,18 @@
 				<li>userPassHash</li>
 				<li>userPassSalt</li>
 			</ul>
+			<h2>media</h2>
+			<ul>
+				<li>mediaId (primary key)</li>
+				<li>mediaTitle</li>
+				<li>mediaFilePath</li>
+			</ul>
 			<h2>review (weak)</h2>
 			<ul>
 				<li>reviewId (primary key)</li>
 				<li>reviewMediaId (foreign key)</li>
 				<li>reviewUserId (foreign key)</li>
 				<li>reviewContent</li>
-			</ul>
-			<h2>media</h2>
-			<ul>
-				<li>mediaId (primary key)</li>
-				<li>mediaTitle</li>
-				<li>mediaFilePath</li>
 			</ul>
 			<h2>helpful (weak)</h2>
 			<ul>
