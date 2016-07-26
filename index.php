@@ -57,8 +57,8 @@
 				<li>userId (primary key)</li>
 				<li>userEmail</li>
 				<li>userName</li>
-				<li>userPassHash</li>
-				<li>userPassSalt</li>
+				<li>userHash</li>
+				<li>userSalt</li>
 			</ul>
 			<h2>media</h2>
 			<ul>
@@ -92,37 +92,41 @@
 			<h3>Data Description Language (DDL) Scripts</h3>
 			<!--SQL scripts formatted with HTML-->
 				<code>
-					DROP TABLE IF EXISTS user; <br>
-					DROP TABLE IF EXISTS media; <br>
+					DROP TABLE IF EXISTS user;<br>
+					DROP TABLE IF EXISTS media;<br>
 					DROP TABLE IF EXISTS review;<br>
 					DROP TABLE IF EXISTS helpful;<br>
 					<br>
 					CREATE TABLE user (<br>
-					userPassSalt CHAR(64),<br>
-					userPassHash CHAR(128),<br>
-					UNIQUE (userName),<br>
+					userId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br>
+					userEmail VARCHAR(128) NOT NULL,<br>
+					userSalt CHAR(64) NOT NULL,<br>
+					userHash CHAR(128) NOT NULL,<br>
+					UNIQUE (userEmail),<br>
 					PRIMARY KEY (userId)<br>
-					);<br>
+					);
 					<br>
 					CREATE TABLE media (<br>
-					mediaFilePath VARCHAR(100) NOT NULL ,<br>
+					mediaFilePath VARCHAR(100) NOT NULL, <br>
 					mediaTitle VARCHAR(200) NOT NULL,<br>
 					PRIMARY KEY (mediaId)<br>
-					);<br>
+					);
 					<br>
 					CREATE TABLE review (<br>
 					reviewContent VARCHAR(1999) NOT NULL,<br>
 					FOREIGN KEY (reviewUserId) REFERENCES user(userId),<br>
 					FOREIGN KEY (reviewMediaId) REFERENCES media(mediaId),<br>
 					PRIMARY KEY (reviewId)<br>
-					);<br>
+					);
 					<br>
 					CREATE TABLE helpful (<br>
 					helpfulVote BOOLEAN,<br>
 					helpfulInappropriate BOOLEAN,<br>
 					FOREIGN KEY (helpfulUserId) REFERENCES user(userId),<br>
-					FOREIGN KEY (helpfulReviewId) REFERENCES review(reviewId)<br>
-					);<br>
+					FOREIGN KEY (helpfulReviewId) REFERENCES review(reviewId),<br>
+					PRIMARY KEY (userId, reviewId)<br>
+					);
+					<br>
 				</code>
 		</main>
 	</body>
