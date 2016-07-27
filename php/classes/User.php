@@ -48,18 +48,20 @@ namespace  Edu\Cnm\CSosa4\Netflix;
 		 * @throws \Exception if some other exception occurs
 		 */
 
-	public function__construct(int $newUserId = null, string $newUserEmail, string $newUserName, string $newUserHash,
-	string $newUserSalt)
-	try {
+	public function __construct(int $newUserId = null, string $newUserEmail, string $newUserName, string $newUserHash,
+										 string $newUserSalt) {
+	try{
 	$this->setUserId($newUserId);
 	$this->setUserEmail($newUserEmail);
 	$this->setUserName($newUserName);
 	$this->setUserHash($newUserHash);
 	$this->setUserSalt($newUserSalt);
-	}catch(\InvalidArgumentException $InvalidArgument) {
-		//rethrow the exception to the caller
-		throw (new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
-	} catch(\RangeException $range){
+
+	}catch(\InvalidArgumentException $invalidArgument)
+		{
+			//rethrow the exception to the caller
+			throw (new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch(\RangeException $range){
 		//rethrow the exception to the caller
 		throw(new \RangeException($range->getMessage(), 0, $range));
 	} catch(\TypeError $typeError) {
@@ -67,7 +69,7 @@ namespace  Edu\Cnm\CSosa4\Netflix;
 		throw(new \TypeError($typeError->getMessage(), 0, $typeError));
 	} catch(\Exception $exception) {
 		//rethrow the exception to the caller
-		throw(new\Exception($exception->getMessage(), 0, $exception));
+		throw(new \Exception($exception->getMessage(), 0, $exception));
 	}
 }
 
@@ -77,8 +79,8 @@ namespace  Edu\Cnm\CSosa4\Netflix;
  **/
 
 public function getUserId() {
-	return ($this->userId);
-}
+		return ($this->userId);
+	}
 
 
 /**
@@ -87,24 +89,23 @@ public function getUserId() {
  * @param int|null $newUserId creates new value of user id
  * @throws \RangeException if $newUserId is not positive
  * @throws \TypeError if $newUserId is not an integer
-**/
+ **/
 
-public function setUserId (int $newUserId = null){
-	//base case: when user is null, this is a new user that hasn't been assigned a mySQL user id (yet)
-	if ($newUserId === null){
-		$this->UserId = null;
-		return;
+public function setUserId(int $newUserId = null) {
+		//base case: when user is null, this is a new user that hasn't been assigned a mySQL user id (yet)
+		if($newUserId === null) {
+			$this->userId = null;
+			return;
+		}
+
+		//verify the user id is positive
+		if($newUserId <= 0) {
+			throw(new \RangeException("user id is not positive"));
+		}
+
+		//convert and store the user id
+		$this->userId = $newUserId;
 	}
-}
-
-//verify the user id is positive
-if($newUserId <= 0) {
-	throw(new \RangeException("user id is not positive"));
-}
-
-//convert and store the user id
-$this->userId = $newUserId;
-}
 
 /**
  * accessor method for user email
@@ -113,7 +114,7 @@ $this->userId = $newUserId;
  */
 
 public function getUserEmail() {
-	return($this->userEmail)
+		return ($this->userEmail);
 }
 
 /**
@@ -123,22 +124,22 @@ public function getUserEmail() {
  * @throws \RangeException if $newUserEmail is greater than 128 characters
  */
 
-public function setUserEmail(string $newUserEmail){
-	//verify that the user email is valid and secure
-	$newUserEmail = trim($newUserEmail);
-	$newUserEmail = filter_var($newUserEmail, FILTER_SANITIZE_EMAIL);
-	if(empty($newUserEmail) === true) {
+public function setUserEmail(string $newUserEmail) {
+		//verify that the user email is valid and secure
+		$newUserEmail = trim($newUserEmail);
+		$newUserEmail = filter_var($newUserEmail, FILTER_SANITIZE_EMAIL);
+		if(empty($newUserEmail) === true) {
 			throw(new \InvalidArgumentException("Email is empty or is insecure"));
-	}
+		}
 
 //verify that the email will fit in the database
-if(strlen($newUserEmail) > 128) {
-	throw(new \RangeException("Email is too long"));
-}
+		if(strlen($newUserEmail) > 128) {
+			throw(new \RangeException("Email is too long"));
+		}
 
 //store the email
-$this->userEmail = $newUserEmail;
-}
+		$this->userEmail = $newUserEmail;
+	}
 
 /**
  * accessor method for user name
@@ -147,8 +148,8 @@ $this->userEmail = $newUserEmail;
  */
 
 public function getUserName() {
-	return ($this->userName);
-}
+		return ($this->userName);
+	}
 
 /**
  * mutator method for user name
@@ -158,21 +159,21 @@ public function getUserName() {
  */
 
 public function setUserName(string $newUserName) {
-	//verify the username is valid and/or secure
-	$newUserName = trim($newUserName, "\t\n\r\0\x0b");
-	$newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING, FILTER_VALIDATE_STRING);
-	if(empty($newUserName) === true) {
-		throw(new \InvalidArgumentException("Username is empty or is insecure"));
-	}
+		//verify the username is valid and/or secure
+		$newUserName = trim($newUserName, "\t\n\r\0\x0b");
+		$newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING);
+		if(empty($newUserName) === true) {
+			throw(new \InvalidArgumentException("Username is empty or is insecure"));
+		}
 
-	//verify that the username will fit in the database
-	if(strlen($newUserName) > 32) {
-		throw(new \RangeException("Username is too long"));
-	}
+		//verify that the username will fit in the database
+		if(strlen($newUserName) > 32) {
+			throw(new \RangeException("Username is too long"));
+		}
 
-	//store username
-	$this->username = $newUserName;
-}
+		//store username
+		$this->username = $newUserName;
+	}
 
 /**
  * accessor method for user salt
@@ -181,8 +182,8 @@ public function setUserName(string $newUserName) {
  */
 
 public function getUserSalt() {
-	return ($this->userSalt);
-}
+		return ($this->userSalt);
+	}
 
 /**
  * mutator method for user salt
@@ -192,15 +193,15 @@ public function getUserSalt() {
  */
 
 public function setUserSalt(string $newUserSalt) {
-	//verify that the salt contains valid characters
-	$newUserSalt=ctype_xdigit($newUserSalt);
-	//verify that the salt is of correct length
-	if(strlen($newUserSalt) !== 64) {
-		throw(new \RangeException("user salt is too long"))
+		//verify that the salt contains valid characters
+		$newUserSalt = ctype_xdigit($newUserSalt);
+		//verify that the salt is of correct length
+		if(strlen($newUserSalt) !== 64) {
+			throw(new \RangeException("user salt is too long"));
 	}
-	//store the salt
-	$this->userSalt = $newUserSalt;
-}
+		//store the salt
+		$this->userSalt = $newUserSalt;
+	}
 
 /**
  * accessor method for user hash
@@ -209,8 +210,8 @@ public function setUserSalt(string $newUserSalt) {
  */
 
 public function getUserHash() {
-	return ($this->userHash);
-}
+		return ($this->userHash);
+	}
 
 /**
  * mutator method for user hash
@@ -219,15 +220,28 @@ public function getUserHash() {
  * @throws \RangeException if $newUserHash is the wrong length
  */
 
-public function setUserHash (string $newUserHash) {
-	//verify that the hash contains valid characters
-	$newUserHash=ctype_xdigit($newUserHash);
-	//verify that the hash will fit in database
-	if(strlen($newUserHash) !== 128){
-		throw(new \RangeException("User hash is too long"));
+public function setUserHash(string $newUserHash) {
+		//verify that the hash contains valid characters
+		$newUserHash = ctype_xdigit($newUserHash);
+		//verify that the hash will fit in database
+		if(strlen($newUserHash) !== 128) {
+			throw(new \RangeException("User hash is too long"));
+		}
+		//store new user hash
+		$this->userHash = $newUserHash;
 	}
-	//store new user hash
-	$this->userHash = $newUserHash;
+
+
+/**
+ * formats the state variables for JSON serialization
+ *
+ * @return array resulting state variables to serialize
+ */
+
+public function jsonSerialize() {
+	$fields = get_object_vars($this);
+		Unset($fields["userSalt"]);
+		Unset($fields["userHash"]);
+		return($fields);
+	}
 }
-
-
