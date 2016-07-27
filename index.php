@@ -57,8 +57,8 @@
 				<li>userId (primary key)</li>
 				<li>userEmail</li>
 				<li>userName</li>
-				<li>userHash</li>
 				<li>userSalt</li>
+				<li>userHash</li>
 			</ul>
 			<h2>media</h2>
 			<ul>

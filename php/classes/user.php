@@ -1,5 +1,5 @@
 <?php
-namespace  Edu\Cnm\CSosa4\NetflixDataDesign
+namespace  Edu\Cnm\CSosa4\Netflix;
 	/**
 	 * Small cross section of a Netflix User
 	 *
@@ -25,12 +25,12 @@ namespace  Edu\Cnm\CSosa4\NetflixDataDesign
 		private $userName;
 
 		/**
-		 * hash for the user password; @var userHash
+		 * hash for the user password; @var $userHash
 		 */
 		private $userHash;
 
 		/**
-		 * salt for the user password; @var userSalt
+		 * salt for the user password; @var $userSalt
 		 */
 		private $userSalt;
 
@@ -56,8 +56,20 @@ namespace  Edu\Cnm\CSosa4\NetflixDataDesign
 	$this->setUserName($newUserName);
 	$this->setUserHash($newUserHash);
 	$this->setUserSalt($newUserSalt);
+	}catch(\InvalidArgumentException $InvalidArgument) {
+		//rethrow the exception to the caller
+		throw (new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+	} catch(\RangeException $range){
+		//rethrow the exception to the caller
+		throw(new \RangeException($range->getMessage(), 0, $range));
+	} catch(\TypeError $typeError) {
+		//rethrow the exception to the caller
+		throw(new \TypeError($typeError->getMessage(), 0, $typeError));
+	} catch(\Exception $exception) {
+		//rethrow the exception to the caller
+		throw(new\Exception($exception->getMessage(), 0, $exception));
 	}
-
+}
 
 /**
  * Accessor medthod for user id
@@ -147,8 +159,8 @@ public function getUserName() {
 
 public function setUserName(string $newUserName) {
 	//verify the username is valid and/or secure
-	$newUserName = trim($newUserName, "\t\n\r\0\x0b"); //check in book
-	$newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+	$newUserName = trim($newUserName, "\t\n\r\0\x0b");
+	$newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING, FILTER_VALIDATE_STRING);
 	if(empty($newUserName) === true) {
 		throw(new \InvalidArgumentException("Username is empty or is insecure"));
 	}
@@ -180,7 +192,14 @@ public function getUserSalt() {
  */
 
 public function setUserSalt(string $newUserSalt) {
-
+	//verify that the salt contains valid characters
+	$newUserSalt=ctype_xdigit($newUserSalt);
+	//verify that the salt is of correct length
+	if(strlen($newUserSalt) !== 64) {
+		throw(new \RangeException("user salt is too long"))
+	}
+	//store the salt
+	$this->userSalt = $newUserSalt;
 }
 
 /**
@@ -189,8 +208,8 @@ public function setUserSalt(string $newUserSalt) {
  * @return string value of user hash
  */
 
-public function getUserSalt() {
-	return ($this->userSalt);
+public function getUserHash() {
+	return ($this->userHash);
 }
 
 /**
@@ -200,7 +219,15 @@ public function getUserSalt() {
  * @throws \RangeException if $newUserHash is the wrong length
  */
 
-public function setUserHah (string $newUserSalt) {
+public function setUserHash (string $newUserHash) {
+	//verify that the hash contains valid characters
+	$newUserHash=ctype_xdigit($newUserHash);
+	//verify that the hash will fit in database
+	if(strlen($newUserHash) !== 128){
+		throw(new \RangeException("User hash is too long"));
+	}
+	//store new user hash
+	$this->userHash = $newUserHash;
+}
 
-}
-}
+
