@@ -172,7 +172,7 @@ public function setUserName(string $newUserName) {
 		}
 
 		//store username
-		$this->username = $newUserName;
+		$this->userName = $newUserName;
 	}
 
 /**
@@ -231,7 +231,23 @@ public function setUserHash(string $newUserHash) {
 		$this->userHash = $newUserHash;
 	}
 
+		/**
+		 * inserts user into mySQL
+		 *
+		 * @param \PDO $pdo PDO connection object
+		 * @throws \PDOException when mySQL related errors occur
+		 *
+		 * @throws \TypeError if $pdo is not a PDO connection object
+		 */
 
+		public function insert(\PDO $pdo){
+			//enforce the userId is null (i.e., don't insert a user that already exists)
+			if($this->userId !== null) {
+				throw(new \PDOException("not a new user"));
+			}
+
+			//create query template
+		}
 /**
  * formats the state variables for JSON serialization
  *
