@@ -27,12 +27,12 @@ namespace  Edu\Cnm\CSosa4\Netflix;
 		/**
 		 * hash for the user password; @var $userHash
 		 */
-		private $userHash;
+		private $userSalt;
 
 		/**
 		 * salt for the user password; @var $userSalt
 		 */
-		private $userSalt;
+		private $userHash;
 
 
 		/**
@@ -54,8 +54,8 @@ namespace  Edu\Cnm\CSosa4\Netflix;
 	$this->setUserId($newUserId);
 	$this->setUserEmail($newUserEmail);
 	$this->setUserName($newUserName);
-	$this->setUserHash($newUserHash);
-	$this->setUserSalt($newUserSalt);
+	$this->setUserHash($newUserSalt);
+	$this->setUserSalt($newUserHash);
 
 	}catch(\InvalidArgumentException $invalidArgument)
 		{
